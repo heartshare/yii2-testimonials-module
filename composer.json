@@ -1,0 +1,18 @@
+{
+	"name": "cics/yii2-testimonials-module",
+	"description": "Yii2 Extension for Testimonials Management",
+	"type": "yii2-extension",
+	"keywords": "["yii2","extension","module","testimonials"]",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Caleb Crosby",
+			"email": "caleb@cicsolutions.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"cics\\modules\\": ""
+		}
+	}
+}

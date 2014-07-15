@@ -10,6 +10,15 @@
 			"email": "caleb@cicsolutions.com"
 		}
 	],
+	"require": {
+		"yiisoft/yii2": "*",
+		"kartik-v/bootstrap-fileinput": "dev-master",
+		"kartik-v/yii2-widgets": "dev-master",
+		"asofter/yii2-imperavi-redactor": "*",
+		"newerton/yii2-fancybox": "dev-master",
+		"cics/yii2-video-embed-widget": "dev-master",
+		"soju/yii2-font-awesome": "*"
+	},
 	"autoload": {
 		"psr-4": {
 			"cics\\modules\\": ""

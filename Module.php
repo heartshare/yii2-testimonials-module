@@ -1,8 +1,8 @@
 <?php
 
-namespace cics\modules\testimonial;
+namespace cics\modules;
 
-class Module extends \yii\base\Module
+class Testimonial extends \yii\base\Module
 {
 	public function init()
 	{

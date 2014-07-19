@@ -21,7 +21,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"cics\\modules\\": ""
+			"cics\\modules\\testimonials\\": ""
 		}
 	}
 }

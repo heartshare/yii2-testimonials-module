@@ -62,7 +62,6 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
 </div>
-WHERE DID THE PAGER GO?!! Probably hidden w/ the latest yii upgrade - requiring more items then page size
 
 <?php
 /*

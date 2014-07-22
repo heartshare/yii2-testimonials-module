@@ -72,7 +72,7 @@ class TestimonialController extends Controller
 
 		// get model
         $model = new Testimonial();
-		
+
 		// check for post data
         if ($model->load(Yii::$app->request->post())) {
 
@@ -125,15 +125,15 @@ class TestimonialController extends Controller
 		$previous_image = $model->image;
 
         if ($model->load(Yii::$app->request->post())) {
-			
+
 			// handle image upload
 			$upload_image = UploadedFile::getInstance($model, 'image');
-			
+
 			// set model image to what was saved previously before process an upload
 			$model->image = $previous_image;
 
 			if (!empty($upload_image->name)) {
-				
+
 				// get upload file extension
 				$ext = end((explode(".", $upload_image->name)));
 
@@ -142,29 +142,29 @@ class TestimonialController extends Controller
 
 	            // the path to save file - CICS NOTE: make the testimonial_images dir be a module param setting
 	            $path = Yii::$app->params['uploadPath'] . 'testimonial_images/' . $model->image;
-	            
+
 			}
-			
+
 			// reset/clear the embed code until processing video url
 			$model->video_embed = null;
-			
+
 			// handle video embed
 			if (!empty($model->video_url)) {
 
 				// lookup video url for embed code
-				$model->video_embed = \cics\widgets\AutoEmbed::widget(['url' => $model->video_url, 'return_type' => 'boolean']);
+				$model->video_embed = \cics\widgets\VideoEmbed::widget(['url' => $model->video_url, 'return_type' => 'boolean']);
 
 				if (!$model->video_embed) {
 					$model->video_embed = null;
 					$model->video_url = null;
-					
+
 					// set error message that video embed faied
 					Yii::$app->session->setFlash('error', 'Could not generate video embed code.  Please try again.');
 				}
 			}
-			
+
 			// handle video upload
-			
+
             // save the model
             if($model->save()){
 
@@ -181,9 +181,9 @@ class TestimonialController extends Controller
                 return $this->redirect(['index']);
 
             } else {
-            
+
             	// CICS NOTE: ISN'T THERE A GOOD WAY TO SEND THE USER BACK TO THE FORM WITH THE DATA THEY'VE ENTERED?
-            	
+
                 // error in saving model
                 Yii::$app->session->setFlash('error', 'There was a problem saving your testimonial.  Please try again.');
                 return $this->redirect(['create']);
@@ -203,7 +203,7 @@ class TestimonialController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-        
+
         Yii::$app->session->setFlash('success', 'Testimonial deleted.');
 
         return $this->redirect(['index']);
@@ -224,7 +224,7 @@ class TestimonialController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-	
+
 	// this could be a good way of checking if the user is allowed to submit a testimonial
 	// could check if the current page if the form page, and then check module params to see what settings are available for submission permissions
 	// or we could just put this on the pages that need it?
@@ -233,8 +233,8 @@ class TestimonialController extends Controller
 	{
 		if (Yii::$app->user->isGuest)
 		    $this->redirect(['user/register']);
-		
+
 		//something code right here if user valided
-	}    
+	}
 */
 }
